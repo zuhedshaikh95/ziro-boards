@@ -12,10 +12,7 @@ const Navbar: React.FC<Props> = ({}) => {
         p-5
         bg-green-500"
     >
-      <div className="hidden lg:flex flex-1 bg-yellow-500">
-        {/* TODO: Add search */}
-        Search
-      </div>
+      <div className="hidden lg:flex flex-1 bg-yellow-500">Search</div>
 
       <UserButton />
     </nav>
