@@ -24,14 +24,13 @@ const EmptyBoards: React.FC<Props> = ({}) => {
     });
 
     if (response.error) {
-      toast.error("Something went wrong!", {
+      return toast.error("Something went wrong!", {
         description: response.error,
         action: {
           label: "X",
           onClick: () => {},
         },
       });
-      return;
     }
 
     toast.success("Board created!", {
