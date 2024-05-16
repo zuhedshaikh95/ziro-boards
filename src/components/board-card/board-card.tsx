@@ -1,10 +1,10 @@
 "use client";
+import { Footer, Overlay } from "@/components/board-card";
+import { Skeleton } from "@/components/ui";
+import { useAuth } from "@clerk/nextjs";
+import { formatDistanceToNow } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useMemo } from "react";
-import { Footer, Overlay } from "@/components/board-card";
-import { formatDistanceToNow } from "date-fns";
-import { useAuth } from "@clerk/nextjs";
 
 type Props = {
   _id: string;
@@ -17,7 +17,7 @@ type Props = {
   isFavorite: boolean;
 };
 
-const BoardCard: React.FC<Props> = ({
+const BoardCard = ({
   _creationTime,
   _id,
   authorId,
@@ -26,12 +26,12 @@ const BoardCard: React.FC<Props> = ({
   isFavorite,
   organizationId,
   title,
-}) => {
+}: Props) => {
   const { userId } = useAuth();
 
   const authorLabel = userId === authorId ? "You" : authorName;
 
-  const createdAtLabel = formatDistanceToNow(_creationTime, { addSuffix: true });
+  const createdAtLabel = formatDistanceToNow(_creationTime, { addSuffix: true, includeSeconds: true });
 
   return (
     <Link href={`/board/${_id}`} passHref>
@@ -59,6 +59,19 @@ const BoardCard: React.FC<Props> = ({
         />
       </div>
     </Link>
+  );
+};
+
+BoardCard.Skeleton = () => {
+  return (
+    <div
+      className="
+        aspect-[100/127]
+        rounded-lg
+        overflow-hidden"
+    >
+      <Skeleton className="h-full w-full" />
+    </div>
   );
 };
 
