@@ -29,8 +29,8 @@ const OrganizationItem: React.FC<Props> = ({ id, imageUrl, name }) => {
         <Image
           fill
           src={imageUrl}
-          className={cn("rounded-md cursor-pointer opacity-75 hover:opacity-100", {
-            "opacity-100": isActive,
+          className={cn("rounded-md cursor-pointer hover:opacity-75 grayscale-[100%]", {
+            "grayscale-0": isActive,
           })}
           onClick={onClick}
           alt={name}
