@@ -10,3 +10,4 @@ export { default as EmptyFavorites } from "./empty-favorites";
 export { default as EmptyBoards } from "./empty-boards";
 export { default as Loader } from "./loader";
 export { default as NewBoardButton } from "./new-board-button";
+export { default as Actions } from "./actions";
