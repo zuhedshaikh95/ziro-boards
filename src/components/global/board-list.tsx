@@ -4,6 +4,7 @@ import { EmptyBoards, EmptyFavorites, EmptySearch, NewBoardButton } from "@/comp
 import { useQuery } from "convex/react";
 import React from "react";
 import { api } from "../../../convex/_generated/api";
+import { Skeleton } from "@/components/ui";
 
 type Props = {
   organizationId: string;
@@ -36,7 +37,15 @@ const BoardList: React.FC<Props> = ({ organizationId, query }) => {
           {Array(10)
             .fill(null)
             .map((_, index) => (
-              <BoardCard.Skeleton key={index} />
+              <div
+                key={index}
+                className="
+                  aspect-[100/127]
+                  rounded-lg
+                  overflow-hidden"
+              >
+                <Skeleton className="h-full w-full" />
+              </div>
             ))}
         </div>
       </div>
