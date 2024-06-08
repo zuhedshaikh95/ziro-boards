@@ -5,6 +5,7 @@ import { Plus } from "lucide-react";
 import React from "react";
 import { api } from "../../../convex/_generated/api";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 type Props = {
   organizationId: string;
@@ -12,6 +13,7 @@ type Props = {
 };
 
 const NewBoardButton: React.FC<Props> = ({ organizationId, disabled }) => {
+  const router = useRouter();
   const { mutate, pending } = useApiMutation(api.board.create);
 
   const handleCreateNewBoard = async () => {
@@ -37,6 +39,8 @@ const NewBoardButton: React.FC<Props> = ({ organizationId, disabled }) => {
         onClick: () => {},
       },
     });
+
+    router.push(`board/${response.data}`);
   };
 
   return (
