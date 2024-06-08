@@ -15,7 +15,7 @@ type Props = {
 };
 
 const BoardList: React.FC<Props> = ({ organizationId, query }) => {
-  const boards = useQuery(api.boards.get, { organizationId });
+  const boards = useQuery(api.boards.get, { organizationId, ...query });
 
   if (boards === undefined) {
     return (
@@ -82,7 +82,7 @@ const BoardList: React.FC<Props> = ({ organizationId, query }) => {
       >
         <NewBoardButton organizationId={organizationId} />
         {boards.map((board) => (
-          <BoardCard key={board._id} {...board} isFavorite={false} />
+          <BoardCard key={board._id} {...board} />
         ))}
       </div>
     </div>
