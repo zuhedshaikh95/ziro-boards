@@ -4,14 +4,16 @@ import { useApiMutation } from "@/hooks";
 import { cn } from "@/libs/utils";
 import { useOrganization } from "@clerk/nextjs";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React from "react";
+import { toast } from "sonner";
 import { api } from "../../../convex/_generated/api";
 import Loader from "./loader";
-import { toast } from "sonner";
 
 type Props = {};
 
 const EmptyBoards: React.FC<Props> = ({}) => {
+  const router = useRouter();
   const { mutate, pending } = useApiMutation(api.board.create);
   const { organization } = useOrganization();
 
@@ -40,6 +42,8 @@ const EmptyBoards: React.FC<Props> = ({}) => {
         onClick: () => {},
       },
     });
+
+    router.push(`board/${response.data}`);
   };
 
   return (
