@@ -1,5 +1,4 @@
 import React from "react";
-
 import Room from "@/components/global/room";
 import { Canvas, CanvasLoading } from "@/components/board";
 
