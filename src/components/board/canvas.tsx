@@ -1,16 +1,13 @@
 "use client";
-import { Info, Participants, Toolbar } from "@/components/board";
 import React from "react";
-import { useSelf } from "../../../liveblocks.config";
+
+import { Info, Participants, Toolbar } from "@/components/board";
 
 type Props = {
   boardId: string;
 };
 
 const Canvas: React.FC<Props> = ({ boardId }) => {
-  const { info } = useSelf();
-  console.log({ info });
-
   return (
     <main
       className="
@@ -19,7 +16,7 @@ const Canvas: React.FC<Props> = ({ boardId }) => {
         bg-neutral-100
         touch-none"
     >
-      <Info />
+      <Info boardId={boardId} />
       <Participants />
       <Toolbar />
     </main>
