@@ -6,3 +6,4 @@ export * as DropdownMenu from "./dropdown-menu";
 export { Button } from "./button";
 export { Input } from "./input";
 export { Skeleton } from "./skeleton";
+export { Separator } from "./separator";
