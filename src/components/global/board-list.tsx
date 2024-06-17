@@ -1,9 +1,10 @@
 "use client";
+import { useQuery } from "convex/react";
+import React from "react";
+
 import { BoardCard } from "@/components/board-card";
 import { EmptyBoards, EmptyFavorites, EmptySearch, NewBoardButton } from "@/components/global";
 import { Skeleton } from "@/components/ui";
-import { useQuery } from "convex/react";
-import React from "react";
 import { api } from "../../../convex/_generated/api";
 
 type Props = {
