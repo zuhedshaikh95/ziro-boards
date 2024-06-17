@@ -76,12 +76,7 @@ const OrganizationSidebar: React.FC<Props> = ({}) => {
           size="lg"
           variant={favorites ? "secondary" : "ghost"}
         >
-          <Link
-            href={{
-              pathname: "/",
-              query: { favorites: true },
-            }}
-          >
+          <Link href="/favorites">
             <Star className="h-4 w-4 mr-2" />
             Favorite Boards
           </Link>
