@@ -3,7 +3,7 @@ import { FunctionReference } from "convex/server";
 import { useState } from "react";
 
 export const useApiMutation = (mutationFun: FunctionReference<"mutation">) => {
-  const [pending, setPending] = useState<boolean>();
+  const [pending, setPending] = useState<boolean>(false);
   const apiMutation = useMutation(mutationFun);
 
   const mutate = async (payload: any) => {
