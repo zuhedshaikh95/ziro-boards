@@ -3,6 +3,7 @@ import React from "react";
 
 import { UserAvatar } from "@/components/board";
 import { useOthers, useSelf } from "../../../liveblocks.config";
+import { connectionIdToColor } from "@/libs/utils";
 
 type Props = {};
 
@@ -27,11 +28,22 @@ const Participants: React.FC<Props> = ({}) => {
     >
       <div className="flex gap-x-2">
         {users.slice(0, MAX_SHOWN_USERS).map(({ connectionId, info }) => (
-          <UserAvatar key={connectionId} src={info?.avatar} name={info?.name} fallback={info?.name?.charAt(0) || "M"} />
+          <UserAvatar
+            borderColor={connectionIdToColor(connectionId)}
+            key={connectionId}
+            src={info?.avatar}
+            name={info?.name}
+            fallback={info?.name?.charAt(0) || "M"}
+          />
         ))}
 
         {user && (
-          <UserAvatar src={user.info?.avatar} name={`${user.info?.name} (You)`} fallback={user.info?.name?.charAt(0)} />
+          <UserAvatar
+            borderColor={connectionIdToColor(user.connectionId)}
+            src={user.info?.avatar}
+            name={`${user.info?.name} (You)`}
+            fallback={user.info?.name?.charAt(0)}
+          />
         )}
 
         {hasMoreUsers && (
