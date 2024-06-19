@@ -12,7 +12,7 @@ type Props = {
 export default async function Board({ params }: Props) {
   return (
     <Room roomId={params.boardId} fallback={<CanvasLoading />}>
-      <Canvas boardId={params.boardId} />;
+      <Canvas boardId={params.boardId} />
     </Room>
   );
 }
