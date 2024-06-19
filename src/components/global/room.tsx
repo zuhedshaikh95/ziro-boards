@@ -12,7 +12,7 @@ type Props = {
 
 const Room: React.FC<Props> = ({ children, roomId, fallback }) => {
   return (
-    <RoomProvider id={roomId} initialPresence={{}}>
+    <RoomProvider id={roomId} initialPresence={{ cursor: null }}>
       <ClientSideSuspense fallback={fallback}>{() => children}</ClientSideSuspense>
     </RoomProvider>
   );
