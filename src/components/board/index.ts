@@ -7,3 +7,6 @@ export { default as UserAvatar } from "./user-avatar";
 export { default as ToolButton } from "./tool-button";
 export { default as CursorsPresence } from "./cursors-presence";
 export { default as Cursor } from "./cursor";
+export { default as LayerPreview } from "./layer-preview";
+export { default as Rectangle } from "./rectangle";
+export { default as SelectionBox } from "./selection-box";
