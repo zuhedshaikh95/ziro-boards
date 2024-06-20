@@ -1,8 +1,10 @@
 "use client";
-import React from "react";
+import { LiveList, LiveMap, LiveObject } from "@liveblocks/client";
 import { ClientSideSuspense } from "@liveblocks/react";
+import React from "react";
 
 import { RoomProvider } from "../../../liveblocks.config";
+import { LayerT } from "../../../types";
 
 type Props = {
   children: React.ReactNode;
@@ -12,7 +14,11 @@ type Props = {
 
 const Room: React.FC<Props> = ({ children, roomId, fallback }) => {
   return (
-    <RoomProvider id={roomId} initialPresence={{ cursor: null }}>
+    <RoomProvider
+      id={roomId}
+      initialPresence={{ cursor: null, selection: [] }}
+      initialStorage={{ layers: new LiveMap<string, LiveObject<LayerT>>(), layerIds: new LiveList<string>() }}
+    >
       <ClientSideSuspense fallback={fallback}>{() => children}</ClientSideSuspense>
     </RoomProvider>
   );
