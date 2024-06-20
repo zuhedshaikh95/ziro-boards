@@ -44,7 +44,7 @@ export type PathLayerT = {
   height: number;
   width: number;
   fill: ColorT;
-  points: number[][];
+  points?: number[][];
   value?: string;
 };
 
@@ -126,3 +126,5 @@ export enum CanvasModeE {
   Resizing,
   Pencil,
 }
+
+export type LayerT = RectangleLayerT | EllipseLayerT | PathLayerT | TextLayerT | NoteLayerT;
