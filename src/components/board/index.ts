@@ -10,3 +10,5 @@ export { default as Cursor } from "./cursor";
 export { default as LayerPreview } from "./layer-preview";
 export { default as Rectangle } from "./rectangle";
 export { default as SelectionBox } from "./selection-box";
+export { default as SelectionTools } from "./selection-tools";
+export { default as ColorPicker } from "./color-picker";
