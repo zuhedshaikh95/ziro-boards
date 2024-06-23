@@ -1,8 +1,9 @@
 "use client";
 import React from "react";
-import { LayerE, SideE, XYWHT } from "../../../types";
-import { useSelf, useStorage } from "../../../liveblocks.config";
+
 import { useSelectionBounds } from "@/hooks";
+import { useSelf, useStorage } from "../../../liveblocks.config";
+import { LayerE, SideE, XYWHT } from "../../../types";
 
 type Props = {
   onResizeHandlePointerDown: (corner: SideE, initialBounds: XYWHT) => void;
@@ -50,7 +51,7 @@ const SelectionBox: React.FC<Props> = ({ onResizeHandlePointerDown }) => {
             }}
             onPointerDown={(event) => {
               event.stopPropagation();
-              // TODO: Add resize handler
+              onResizeHandlePointerDown(SideE.Top + SideE.Left, bounds);
             }}
           />
 
@@ -69,7 +70,7 @@ const SelectionBox: React.FC<Props> = ({ onResizeHandlePointerDown }) => {
             }}
             onPointerDown={(event) => {
               event.stopPropagation();
-              // TODO: Add resize handler
+              onResizeHandlePointerDown(SideE.Top, bounds);
             }}
           />
 
@@ -88,7 +89,7 @@ const SelectionBox: React.FC<Props> = ({ onResizeHandlePointerDown }) => {
             }}
             onPointerDown={(event) => {
               event.stopPropagation();
-              // TODO: Add resize handler
+              onResizeHandlePointerDown(SideE.Top + SideE.Right, bounds);
             }}
           />
 
@@ -107,7 +108,7 @@ const SelectionBox: React.FC<Props> = ({ onResizeHandlePointerDown }) => {
             }}
             onPointerDown={(event) => {
               event.stopPropagation();
-              // TODO: Add resize handler
+              onResizeHandlePointerDown(SideE.Right, bounds);
             }}
           />
 
@@ -126,7 +127,7 @@ const SelectionBox: React.FC<Props> = ({ onResizeHandlePointerDown }) => {
             }}
             onPointerDown={(event) => {
               event.stopPropagation();
-              // TODO: Add resize handler
+              onResizeHandlePointerDown(SideE.Bottom + SideE.Right, bounds);
             }}
           />
 
@@ -145,7 +146,7 @@ const SelectionBox: React.FC<Props> = ({ onResizeHandlePointerDown }) => {
             }}
             onPointerDown={(event) => {
               event.stopPropagation();
-              // TODO: Add resize handler
+              onResizeHandlePointerDown(SideE.Bottom, bounds);
             }}
           />
 
@@ -164,7 +165,7 @@ const SelectionBox: React.FC<Props> = ({ onResizeHandlePointerDown }) => {
             }}
             onPointerDown={(event) => {
               event.stopPropagation();
-              // TODO: Add resize handler
+              onResizeHandlePointerDown(SideE.Bottom + SideE.Left, bounds);
             }}
           />
 
@@ -183,7 +184,7 @@ const SelectionBox: React.FC<Props> = ({ onResizeHandlePointerDown }) => {
             }}
             onPointerDown={(event) => {
               event.stopPropagation();
-              // TODO: Add resize handler
+              onResizeHandlePointerDown(SideE.Left, bounds);
             }}
           />
         </>
