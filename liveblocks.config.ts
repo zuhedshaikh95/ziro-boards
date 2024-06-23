@@ -1,7 +1,7 @@
 import { createClient, LiveList, LiveMap, LiveObject } from "@liveblocks/client";
 import { createLiveblocksContext, createRoomContext } from "@liveblocks/react";
 
-import { LayerT } from "./types";
+import { ColorT, LayerT } from "./types";
 
 const client = createClient({
   authEndpoint: "/api/liveblocks-auth",
@@ -44,6 +44,8 @@ const client = createClient({
 type Presence = {
   cursor: { x: number; y: number } | null;
   selection: string[];
+  pencilDraft: [x: number, y: number, pressure: number][] | null;
+  penColor: ColorT | null;
   // ...
 };
 
