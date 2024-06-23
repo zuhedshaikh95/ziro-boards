@@ -12,3 +12,7 @@ export { default as Rectangle } from "./rectangle";
 export { default as SelectionBox } from "./selection-box";
 export { default as SelectionTools } from "./selection-tools";
 export { default as ColorPicker } from "./color-picker";
+export { default as Ellipse } from "./ellipse";
+export { default as Text } from "./text";
+export { default as Note } from "./note";
+export { default as Path } from "./path";
