@@ -16,7 +16,7 @@ const Room: React.FC<Props> = ({ children, roomId, fallback }) => {
   return (
     <RoomProvider
       id={roomId}
-      initialPresence={{ cursor: null, selection: [] }}
+      initialPresence={{ cursor: null, selection: [], pencilDraft: null, penColor: null }}
       initialStorage={{ layers: new LiveMap<string, LiveObject<LayerT>>(), layerIds: new LiveList<string>() }}
     >
       <ClientSideSuspense fallback={fallback}>{() => children}</ClientSideSuspense>
